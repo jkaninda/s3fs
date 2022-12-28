@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 ENV ACCESS_KEY=""
 ENV SECRET_KEY=""
 ENV BUCKETNAME=""
-ENV S3_URL=""
+ENV S3_ENDPOINT=""
 ENV TZ=Africa/Lubumbashi
 ARG DEBIAN_FRONTEND=noninteractive
 
