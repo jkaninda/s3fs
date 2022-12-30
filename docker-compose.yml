@@ -8,8 +8,6 @@ services:
   tty: true
   devices:
     - "/dev/fuse"
-  volumes:
-    - ./data:/s3mnt
   environment:
    - ACCESS_KEY=${ACCESS_KEY}
    - SECRET_KEY=${SECRET_KEY}
