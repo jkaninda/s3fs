@@ -7,6 +7,8 @@
 * [Docker Hub](https://hub.docker.com/r/jkaninda/s3fs)
 * [Github](https://github.com/jkaninda/s3fs)
 
+> Mounting path: /s3mnt
+
 ## Supported
 - AWS S3
 - Contabo Object Storage
