@@ -2,7 +2,7 @@
 
 # s3fs
 
-> 🐳 AWS S3 client, Object Storage client , Contabo Object client 
+> 🐳 AWS S3 client, Object Storage client , Contabo Object Storage client 
 
 ## Supported
 - AWS S3
