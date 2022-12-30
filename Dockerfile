@@ -1,8 +1,8 @@
 FROM ubuntu:20.04
+ENV BUCKETNAME=?
 ENV ACCESS_KEY=""
 ENV SECRET_KEY=""
-ENV BUCKETNAME=""
-ENV S3_ENDPOINT=""
+ENV S3_ENDPOINT=https://s3.amazonaws.com
 ENV TZ=Africa/Lubumbashi
 ARG DEBIAN_FRONTEND=noninteractive
 
