@@ -42,5 +42,5 @@ jobs:
           push: true
           tags: |
            "${{env.BUILDKIT_IMAGE}}:${{env.TAG_NAME}}"
-           "${{env.BUILDKIT_IMAGE}}:v1.0"
+           "${{env.BUILDKIT_IMAGE}}:v1.0-beta"
           
