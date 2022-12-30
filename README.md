@@ -4,13 +4,14 @@
 
 > 🐳 AWS S3 client, Object Storage client , Contabo Object Storage client 
 
+* [Docker Hub](https://hub.docker.com/r/jkaninda/s3fs)
+* [Github](https://github.com/jkaninda/s3fs)
+
 ## Supported
 - AWS S3
 - Contabo Object Storage
 - ...
 
-* [Docker Hub](https://hub.docker.com/r/jkaninda/s3fs)
-* [Github](https://github.com/jkaninda/s3fs)
 
 ## Simple docker-compose usage:
 
