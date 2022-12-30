@@ -9,8 +9,8 @@
 - Contabo Object Storage
 - ...
 
-- [Docker Hub](https://hub.docker.com/r/jkaninda/s3fs)
-- [Github](https://github.com/jkaninda/s3fs)
+* [Docker Hub](https://hub.docker.com/r/jkaninda/s3fs)
+* [Github](https://github.com/jkaninda/s3fs)
 
 ## Simple docker-compose usage:
 
