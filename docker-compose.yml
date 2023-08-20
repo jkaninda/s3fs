@@ -8,6 +8,8 @@ services:
   tty: true
   devices:
     - "/dev/fuse"
+  volumes:
+    - ./backups:/var/backups
   environment:
    - ACCESS_KEY=${ACCESS_KEY}
    - SECRET_KEY=${SECRET_KEY}
