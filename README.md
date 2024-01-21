@@ -11,7 +11,7 @@
 
 > Path:
 
-AWS S3 Storage Mounting path: `/s3mnt`
+AWS S3 Storage mounting path: `/s3mnt`
 
 ## Supported
 - AWS S3
@@ -39,6 +39,7 @@ services:
 ## Copy a file to S3
 This is a simple example of copying a file from your local storage to S3, and after the copy container will stop running.
 To keep the container running you need add `--keep` flag.
+
 `s3fsctl mount --keep`
 
 
