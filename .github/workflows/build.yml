@@ -1,37 +1,29 @@
-name: build-ci
-
+name: Build
 on:
   push:
-    branches:
-      - '**'
-
+    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      docker_tag:
+        description: 'Docker tag'
+        required: true
+        default: 'latest'
+        type: string
 env:
-  #BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
   BUILDKIT_IMAGE: jkaninda/s3fs
 jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - 
-        name: Set environment for branch
-        run: |
-          set -x
-          if [[ $GITHUB_REF == 'refs/heads/main' ]]; then
-            echo "TAG_NAME=latest" >> "$GITHUB_ENV"
-            echo "runs-on: main branch"
-          else
-            echo "TAG_NAME=${{ github.head_ref || github.ref_name }}" >> "$GITHUB_ENV"
-            echo "runs-on: ${{ github.head_ref || github.ref_name }} branch"
-          fi
-      - 
+      -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      - 
+        uses: docker/setup-qemu-action@v3
+      -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      - 
+        uses: docker/setup-buildx-action@v3
+      -
         name: Login to DockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -40,8 +32,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
+          file: "./docker/Dockerfile"
           platforms: linux/amd64,linux/arm64
           tags: |
-           "${{env.BUILDKIT_IMAGE}}:${{env.TAG_NAME}}"
-           "${{env.BUILDKIT_IMAGE}}:v1.0-beta"
-          
+            "${{env.BUILDKIT_IMAGE}}:v0.1"
+            "${{env.BUILDKIT_IMAGE}}:latest"

@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  s3fs:
+    container_name: s3fs
+    image: jkaninda/s3fs
+    privileged: true
+    devices:
+      - "/dev/fuse"
+    environment:
+      - ACCESS_KEY=${ACCESS_KEY}
+      - SECRET_KEY=${SECRET_KEY}
+      - BUCKET_NAME=${BUCKET_NAME}
+      - S3_ENDPOINT=${S3_ENDPOINT}
