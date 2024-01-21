@@ -1,5 +1,3 @@
-[![build-ci](https://github.com/jkaninda/s3fs/actions/workflows/build.yml/badge.svg)](https://github.com/jkaninda/s3fs/actions/workflows/build.yml)
-
 # s3fs
 
  🐳 AWS S3 client, Object Storage client  
