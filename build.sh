@@ -6,6 +6,6 @@ if [ $# -eq 0 ]
     tag=$1
 fi
 
-docker build  -t jkaninda/s3fs:$tag .
+docker build -f docker/Dockerfile -t jkaninda/s3fs:$tag .
 
 docker-compose up -d

@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+ s3fs:
+  container_name: s3fs
+  image: jkaninda/s3fs
+  privileged: true
+  devices:
+    - "/dev/fuse"
+   ## Mount S3 Storage and copy a file
+   ## After the copy container will stop running
+  command:
+   - /bin/sh
+   - -c
+   - |
+    s3fsctl mount
+    cp /s3mnt/Database_20240120_113328.sql.gz /backup/Database_20240120_113328.sql.gz
+  volumes:
+    - ./backup:/backup
+  environment:
+   - ACCESS_KEY=${ACCESS_KEY}
+   - SECRET_KEY=${SECRET_KEY}
+   - BUCKET_NAME=${BUCKET_NAME}
+   - S3_ENDPOINT=${S3_ENDPOINT}
