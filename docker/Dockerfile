@@ -20,7 +20,7 @@ ENV VERSION="v0.1"
 LABEL authors="Jonas Kaninda"
 
 RUN apt-get update -qq
-RUN apt install s3fs mysql-client supervisor -y
+RUN apt install s3fs supervisor -y
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -32,6 +32,8 @@ RUN chmod 777 /tmp/s3cache
 
 COPY --from=build /app/s3fsctl /usr/local/bin/s3fsctl
 RUN chmod +x /usr/local/bin/s3fsctl
+RUN ln -s /usr/local/bin/s3fsctl /usr/local/bin/s3fsc
+
 
 ADD docker/supervisord.conf /etc/supervisor/supervisord.conf
 
