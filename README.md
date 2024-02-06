@@ -38,7 +38,7 @@ services:
 This is a simple example of copying a file from your local storage to S3, and after the copy container will stop running.
 To keep the container running you need add `--keep` flag.
 
-`s3fsctl mount --keep`
+`s3fsc mount --keep`
 
 
 ```yaml
@@ -57,7 +57,7 @@ services:
    - /bin/sh
    - -c
    - |
-    s3fsctl mount 
+     s3fsc mount 
     cp /backup/my_file.gz /s3mnt/my_file.gz 
   environment:
    - ACCESS_KEY=${ACCESS_KEY}

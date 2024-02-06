@@ -8,7 +8,7 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "s3fsctl",
+	Use:   "s3fsc",
 	Short: "AWS S3 client, Object Storage client, MinIO",
 }
 
@@ -21,4 +21,6 @@ func Execute() {
 
 func init() {
 	rootCmd.AddCommand(S3MountCmd)
+	rootCmd.AddCommand(BackupCmd)
+	rootCmd.AddCommand(RestoreCmd)
 }
