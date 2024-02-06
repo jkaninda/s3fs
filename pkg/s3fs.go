@@ -74,7 +74,12 @@ func MountS3Storage(cmd *cobra.Command) {
 
 	}
 }
+func Backup(cmd *cobra.Command) {
 
+}
+func Restore(cmd *cobra.Command) {
+
+}
 func listDir() {
 	entries, err := os.ReadDir(s3MountPath)
 	if err != nil {

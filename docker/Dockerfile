@@ -7,7 +7,7 @@ COPY . .
 RUN go mod download
 
 # Build
-RUN CGO_ENABLED=0 GOOS=linux go build -o /app/s3fsctl
+RUN CGO_ENABLED=0 GOOS=linux go build -o /app/s3fsc
 
 FROM ubuntu:24.04
 ENV BUCKETNAME=""
@@ -30,9 +30,9 @@ RUN mkdir /tmp/s3cache
 RUN chmod 777 /s3mnt
 RUN chmod 777 /tmp/s3cache
 
-COPY --from=build /app/s3fsctl /usr/local/bin/s3fsctl
-RUN chmod +x /usr/local/bin/s3fsctl
-RUN ln -s /usr/local/bin/s3fsctl /usr/local/bin/s3fsc
+COPY --from=build /app/s3fsc /usr/local/bin/s3fsc
+RUN chmod +x /usr/local/bin/s3fsc
+RUN ln -s /usr/local/bin/s3fsc /usr/local/bin/s3fsctl
 
 
 ADD docker/supervisord.conf /etc/supervisor/supervisord.conf
@@ -40,4 +40,4 @@ ADD docker/supervisord.conf /etc/supervisor/supervisord.conf
 
 WORKDIR /root
 
-CMD ["/bin/bash", "-c", "/usr/local/bin/s3fsctl mount --keep"]
+CMD ["/bin/bash", "-c", "/usr/local/bin/s3fsc mount --keep"]
